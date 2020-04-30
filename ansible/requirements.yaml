@@ -1,0 +1,6 @@
+# from galaxy
+- src: https://github.com/geerlingguy/ansible-role-gitlab
+- src: https://github.com/geerlingguy/ansible-role-nginx
+- src: geerlingguy.pip
+- src: geerlingguy.docker
+- src: geerlingguy.nodejs
