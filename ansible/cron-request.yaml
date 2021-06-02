@@ -1,0 +1,14 @@
+- hosts: all
+
+  tasks:
+    - name: Install scripts to /opt
+      copy:
+        src: ../../haproxy-dynamic-weight
+        dest: /opt
+    - name: install cron job to request dynamic weights
+      cron:
+        name: "haproxy-dynamic-weight-request"
+        minute: "*/5"
+        job: "python3 /opt/haproxy-dynamic-weight/request-lb-weight.py 127.0.0.1:11211"
+        cron_file: "/etc/cron.d/req"
+        user: root
